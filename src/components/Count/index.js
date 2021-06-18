@@ -8,11 +8,12 @@ import {
     Image,
     TextInput,
     Keyboard,
-    Vibration
+    Vibration,
+    Modal
 } from 'react-native';
 import { Ionicons  } from '@expo/vector-icons';
 
-import Modal from '../Modal';
+import ModalContainer from '../ModalContainer';
 import PlayBlack from '../PlayBlack';
 import PlayWhite from '../PlayWhite';
 
@@ -156,7 +157,9 @@ export default function Count(){
 
             <PlayWhite setChess={ setChess } setCount={ setCount } setCountBlack={ setCountBlack } clearTimeout={ clearTimeout } countdown={ countdown } setActive={ setActive } />
 
-            <Modal state={ modal } setState={ setModal } />
+            <Modal visible={modal} transparent animationType="fade" >
+                <ModalContainer modal={ modal } setModal={ setModal } />
+            </Modal>
 
         </SafeAreaView>
     );
